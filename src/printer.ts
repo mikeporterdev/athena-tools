@@ -24,7 +24,7 @@ export async function uploadCleanedFile(printerIp: string, path: string, profile
     const formData = new FormData();
 
     formData.append('ZipFile', createReadStream(path));
-    formData.append('ProfileId', profileId);
+    formData.append('ProfileID', profileId);
     formData.append('Path', basename(path).replace(".nanodlp", ""));
     formData.append('AutoCenter', 0);
     formData.append('Offset', 0.00);
