@@ -1,8 +1,8 @@
 import {Profile} from "./types";
-import * as fs from "fs";
+import {createReadStream} from "fs";
 import FormData from 'form-data';
-import {readFile} from "fs/promises";
-
+import { basename } from "path";
+import fetch from 'node-fetch';
 const PRINTER_PROFILES_PATH = 'json/db/profiles.json'
 const PRINTER_UPLOAD_PATH = 'plate/add'
 
@@ -16,25 +16,28 @@ export async function getPrinterProfiles(printerIp: string) {
     console.log(`Found ${profiles.length} profiles to choose from`)
 
     return profiles;
-    
 }
 
 
 
-export async function uploadCleanedFile(printerIp: string, path: string): Promise<void> {
+export async function uploadCleanedFile(printerIp: string, path: string, profileId: number): Promise<void> {
     const url = `http://${printerIp}/${PRINTER_UPLOAD_PATH}`;
 
-    const formData: any = new FormData();
+    const formData = new FormData();
 
-    const fileBuffer = await readFile(path);
-    formData.append('ZipFile', fileBuffer, { filename: 'test.nanodlp' });
-
-    const headers = formData.getHeaders()
+    formData.append('ZipFile', createReadStream(path));
+    formData.append('ProfileId', profileId);
+    formData.append('Path', basename(path).replace(".nanodlp", ""));
+    formData.append('AutoCenter', 0);
+    formData.append('Offset', 0.00);
+    formData.append('LowQualityLayerNumber', 0);
+    formData.append('MaskEffect', 0.00);
+    formData.append('ImageRotate', 0);
 
     await fetch(url, {
         method: 'POST',
-        body: formData,
-        headers: headers, // Convert headers to a plain object
+        body: formData,  // The FormData instance
+        headers: formData.getHeaders(),
     });
 
     console.log('Uploaded file to printer')

@@ -46,7 +46,7 @@ program
         await updateFile(pathToLycheeNanoDlp, selectedProfile)
         console.log(`NanoDLP successfully cleaned and ready for upload`)
         console.log('Uploading file')
-        await uploadCleanedFile(selectedHostName, pathToLycheeNanoDlp)
+        await uploadCleanedFile(selectedHostName, pathToLycheeNanoDlp, selectedProfile.ProfileID)
     });
 
 program.parse(process.argv)
