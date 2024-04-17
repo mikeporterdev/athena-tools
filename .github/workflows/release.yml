@@ -42,5 +42,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./dist/athena-tools.js
-          asset_name: bundle.js
+          asset_name: athena-tools.js
           asset_content_type: application/javascript
