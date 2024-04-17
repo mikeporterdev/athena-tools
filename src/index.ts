@@ -44,7 +44,7 @@ program
 
         console.log(`Editing nanodlp ${pathToLycheeNanoDlp}`)
         await updateFile(pathToLycheeNanoDlp, selectedProfile)
-        console.log(`NanoDLP successfully cleaned`)
+        console.log(`NanoDLP successfully cleaned and ready for upload`)
     });
 
 program.parse(process.argv)
