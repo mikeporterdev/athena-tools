@@ -18,8 +18,6 @@ export async function getPrinterProfiles(printerIp: string) {
     return profiles;
 }
 
-
-
 export async function uploadCleanedFile(printerIp: string, path: string, profileId: number): Promise<void> {
     const url = `http://${printerIp}/${PRINTER_UPLOAD_PATH}`;
 
