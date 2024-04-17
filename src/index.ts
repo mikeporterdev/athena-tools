@@ -1,8 +1,7 @@
-import { program } from "commander";
+import {program} from "commander";
 import {getPrinterProfiles, uploadCleanedFile} from "./printer";
 import select from "@inquirer/select";
-import inquirer from "inquirer";
-import { input } from "@inquirer/prompts";
+import {input} from "@inquirer/prompts";
 import {updateFile} from "./zipper";
 
 program
@@ -22,7 +21,7 @@ program
 
         const selectedHostName = hostName ? hostName : await input({ message: 'Enter your printer IP address, eg. enterprising-senna.local or 192.168.0.1, (do not include http): '})
 
-        let profiles = await getPrinterProfiles(selectedHostName);
+        const profiles = await getPrinterProfiles(selectedHostName);
 
         const selectedProfileId = profileId ? profileId : await select({
             message: 'Please choose a profile:',

@@ -7,7 +7,9 @@
     "compile": "tsc",
     "run": "node ./dist/index.js",
     "generatetest": "rimraf testFiles/sphere.nanodlp && cp testFiles/spherebackup.nanodlp testFiles/sphere.nanodlp",
-    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/athena-tools.js"
+    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/athena-tools.js",
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +27,11 @@
     "@types/commander": "^2.12.2",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
     "esbuild": "^0.20.2",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
     "rimraf": "^5.0.5",
     "typescript": "^5.4.5"
   }
