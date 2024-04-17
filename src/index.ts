@@ -1,5 +1,5 @@
 import { program } from "commander";
-import {getPrinterProfiles} from "./printer";
+import {getPrinterProfiles, uploadCleanedFile} from "./printer";
 import select from "@inquirer/select";
 import inquirer from "inquirer";
 import { input } from "@inquirer/prompts";
@@ -45,6 +45,8 @@ program
         console.log(`Editing nanodlp ${pathToLycheeNanoDlp}`)
         await updateFile(pathToLycheeNanoDlp, selectedProfile)
         console.log(`NanoDLP successfully cleaned and ready for upload`)
+        console.log('Uploading file')
+        await uploadCleanedFile(selectedHostName, pathToLycheeNanoDlp)
     });
 
 program.parse(process.argv)
