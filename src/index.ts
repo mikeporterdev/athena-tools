@@ -20,7 +20,7 @@ program
 
         const { profileId, hostName } = options;
 
-        const selectedHostName = hostName ? hostName : await input({ message: 'Enter your printer IP address, eg. enterprising-senna.local or 192.168.0.1, do not include http'})
+        const selectedHostName = hostName ? hostName : await input({ message: 'Enter your printer IP address, eg. enterprising-senna.local or 192.168.0.1, (do not include http): '})
 
         let profiles = await getPrinterProfiles(selectedHostName);
 
