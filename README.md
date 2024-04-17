@@ -12,6 +12,7 @@
 ## Example commands
 `node athena-tools.js fix myfile.nanodlp`
 This will ask you for your printer name, resin profile and then upload the fixed file
+
 ![img.png](img.png)
 
 Alternatively, you can provide the hostname arguments eagerly.
@@ -21,6 +22,7 @@ You can also provide the profile name eagerly at the same time. To do this you w
 `node athena-tools.js fix --hostName enterprising-senna.local --profileId 1000 myfile.nanodlp`
 
 Profile ID can be found by going to your resin profile in the webui, clicking edit, and finding the number in the URL.
+
 ![img_1.png](img_1.png)
 
 ![img_2.png](img_2.png)
