@@ -26,3 +26,28 @@ Profile ID can be found by going to your resin profile in the webui, clicking ed
 ![img_1.png](img_1.png)
 
 ![img_2.png](img_2.png)
+
+## Using within Lychee
+
+Lychee supports executing a command line script with a file it just sliced.
+
+![img_4.png](img_4.png)![img_3.png](img_3.png)
+
+By inputting the full command with all parameters provided into the Lychee settings, you can have this script upload 
+straight from Lychee with no command line needed.
+
+Go to the Lychee settings and navigate to the External Tools tab and fill in the full command into the User Command Line box.
+However, for the file path, simply use ((file)), this will tell Lychee to fill in that part with the filepath to what it just sliced. 
+Make sure to restart lychee after setting this value.
+![img_5.png](img_5.png)
+
+For example, my full lychee command is
+
+`node /Users/mikeporter/projects/athena-lychee-tool/dist/athena-tools.js fix --hostName enterprising-senna.local --profileId 1013 ((file))`
+
+Then, after slicing, click the "Execute command line" button after the slice is finished and the file will be sent to your printer.
+
+#### Notes
+- Unfortunately there is no way to have profile selection with this, you will only be able to use one profile like this.
+- Lychee will not give you any feedback after the button is pressed, so you'll need to check your printer webui to see if it worked.
+- Lychee will not give you any feedback if the script fails, I recommend running your command on the command line a few times to check you have it right.
