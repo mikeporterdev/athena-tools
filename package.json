@@ -5,17 +5,24 @@
   "main": "index.js",
   "scripts": {
     "compile": "tsc",
-    "run": "node ./dist/index.js"
+    "run": "node ./dist/index.js",
+    "generatetest": "rimraf testFiles/sphere.nanodlp && cp testFiles/spherebackup.nanodlp testFiles/sphere.nanodlp"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^12.0.0"
+    "@inquirer/prompts": "^5.0.1",
+    "@inquirer/select": "^2.3.1",
+    "commander": "^12.0.0",
+    "fs-extra": "^11.2.0",
+    "jszip": "^3.10.1"
   },
   "devDependencies": {
     "@types/commander": "^2.12.2",
+    "@types/inquirer": "^9.0.7",
     "@types/node": "^20.12.7",
+    "rimraf": "^5.0.5",
     "typescript": "^5.4.5"
   }
 }
